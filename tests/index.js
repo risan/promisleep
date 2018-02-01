@@ -1,5 +1,6 @@
 import promisleep from '../src';
 
+/* eslint-disable no-undef */
 test('it should return a promise', async () => {
   expect.assertions(1);
 
@@ -14,3 +15,4 @@ test('it should call setTimeout', () => {
   expect(setTimeout).toHaveBeenCalledTimes(1);
   expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 100);
 });
+/* eslint-enable no-undef */
