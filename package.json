@@ -1,7 +1,7 @@
 {
   "name": "promisleep",
   "description": "Promise based sleep function for Node and browser.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "homepage": "https://github.com/risan/promisleep#readme",
   "author": {
@@ -22,7 +22,6 @@
     "async"
   ],
   "main": "dist/promisleep.cjs.js",
-  "module": "dist/promisleep.esm.js",
   "browser": "dist/promisleep.umd.js",
   "engines": {
     "node": ">=8.0.0"
