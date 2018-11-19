@@ -1,23 +1,25 @@
-# Recursive Freeze
+# Promisleep
 
-[![Latest Stable Version](https://img.shields.io/npm/v/promisleep.svg)](https://www.npmjs.com/package/promisleep)
-[![Build Status](https://travis-ci.org/risan/promisleep.svg?branch=master)](https://travis-ci.org/risan/promisleep)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/d454a7caf74e1cc59ec6/test_coverage)](https://codeclimate.com/github/risan/promisleep/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/d454a7caf74e1cc59ec6/maintainability)](https://codeclimate.com/github/risan/promisleep/maintainability)
-[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/risan/promisleep)
-[![License](https://img.shields.io/npm/l/promisleep.svg)](https://www.npmjs.com/package/promisleep)
+[![Build Status](https://flat.badgen.net/travis/risan/promisleep)](https://travis-ci.org/risan/promisleep)
+[![Test Coverage](https://flat.badgen.net/codeclimate/coverage/risan/promisleep)](https://codeclimate.com/github/risan/promisleep)
+[![Maintainability](https://flat.badgen.net/codeclimate/maintainability/risan/promisleep)](https://codeclimate.com/github/risan/promisleep)
+[![Latest Stable Version](https://flat.badgen.net/npm/v/promisleep)](https://www.npmjs.com/package/promisleep)
+[![Node Version](https://flat.badgen.net/npm/node/promisleep)](https://www.npmjs.com/package/promisleep)
+[![Code Style: Prettier](https://flat.badgen.net/badge/code%20style/prettier/ff69b4)](https://github.com/prettier/prettier)
+[![License](https://flat.badgen.net/npm/license/promisleep)](https://github.com/risan/promisleep/blob/master/LICENSE)
 
 A promise based sleep function for Node and browser.
 
-## Install
-
-You can install this package through NPM:
+## Installation
 
 ```bash
 $ npm install promisleep
+
+# Or if you use Yarn
+$ yarn add promisleep
 ```
 
-You can also use this library on browser. Simply load the UMD bundle like so:
+Use this library directly on the browser:
 
 ```html
 <!-- For development -->
@@ -27,24 +29,26 @@ You can also use this library on browser. Simply load the UMD bundle like so:
 <script src="https://unpkg.com/promisleep@latest/dist/promisleep.umd.min.js"></script>
 ```
 
-## Usage
+## Quick Start
 
 ```js
-const promisleep = require('promisleep');
+const promisleep = require("promisleep");
 
 promisleep(3000)
-  .then(() => console.log('⏰ I woke up after 3 seconds...'));
+  .then(() => console.log("⏰ Delayed for 3 seconds..."));
 ```
 
-Or if you perfer to use ES2016 `async/await` instead:
+If you perfer to use the ES2016 `async/await` syntax:
 
 ```js
-import promisleep from 'promisleep';
+import promisleep from "promisleep";
 
 const letMeSleep = async () => {
-  console.log("😴 I'm gonna sleep for 3 seconds...")
-  await promisleep(3000);
-  console.log('⏰ I woke up after 3 seconds...');
+  console.log("😴 I'm gonna sleep for 3 seconds...");
+
+  await promisleep(5000);
+
+  console.log("⏰ I woke up after 5 seconds...");
 }
 
 letMeSleep();
@@ -52,6 +56,4 @@ letMeSleep();
 
 ## License
 
-MIT © [Risan Bagja Pradana](https://risan.io)
-
-This package is inspired from [Addy Osmani](https://www.facebook.com/addyosmaniofficial)'s coding tips on [Facebook](https://www.facebook.com/addyosmaniofficial/photos/a.10151435123819601.1073741825.129712729600/10155386406924601/?type=3&theater).
+MIT © [Risan Bagja Pradana](https://bagja.net)
