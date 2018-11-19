@@ -1,57 +1,59 @@
-import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
-import eslint from 'rollup-plugin-eslint';
-import uglify from 'rollup-plugin-uglify';
-import pkg from './package.json';
-
-const umdConfig = ({ minify = false } = {}) => {
-  const config = {
-    input: 'src/index.js',
-    output: {
-      file: minify ? `dist/${pkg.name}.umd.min.js` : `dist/${pkg.name}.umd.js`,
-      format: 'umd'
-    },
-    name: 'promisleep',
-    plugins: [
-      eslint({
-        include: ['src/**'],
-        throwOnError: true,
-        throwOnWarning: true
-      }),
-      commonjs(),
-      babel({ exclude: 'node_modules/**' })
-    ]
-  };
-
-  if (minify) {
-    config.plugins.push(uglify());
-  }
-
-  return config;
-};
+import babel from "rollup-plugin-babel";
+import { terser } from "rollup-plugin-terser";
+import pkg from "./package.json";
 
 export default [
-  umdConfig(),
-  umdConfig({ minify: true }),
+  // CommonJS
   {
-    input: 'src/index.js',
-    output: [
-      {
-        file: pkg.main,
-        format: 'cjs'
-      },
-      {
-        file: pkg.module,
-        format: 'es'
-      }
-    ],
+    input: "src/index.js",
+    output: {
+      file: pkg.main,
+      format: "cjs"
+    },
     plugins: [
-      eslint({
-        include: ['src/**'],
-        throwOnError: true,
-        throwOnWarning: true
+      babel({
+        exclude: "node_modules/**",
+        babelrc: false,
+        presets: [
+          [
+            "@babel/env",
+            {
+              modules: false,
+              targets: "node 8"
+            }
+          ]
+        ]
+      })
+    ]
+  },
+
+  // UMD
+  {
+    input: "src/index.js",
+    output: {
+      name: pkg.name,
+      file: pkg.browser,
+      format: "umd"
+    },
+    plugins: [
+      babel({
+        exclude: "node_modules/**"
+      })
+    ]
+  },
+
+  {
+    input: "src/index.js",
+    output: {
+      name: pkg.name,
+      file: pkg.browser.replace(/\.js$/i, ".min.js"),
+      format: "umd"
+    },
+    plugins: [
+      babel({
+        exclude: "node_modules/**"
       }),
-      babel({ exclude: 'node_modules/**' })
+      terser()
     ]
   }
 ];
