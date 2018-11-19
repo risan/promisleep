@@ -8,7 +8,7 @@
 [![Code Style: Prettier](https://flat.badgen.net/badge/code%20style/prettier/ff69b4)](https://github.com/prettier/prettier)
 [![License](https://flat.badgen.net/npm/license/promisleep)](https://github.com/risan/promisleep/blob/master/LICENSE)
 
-A promise based sleep function for Node and browser.
+Promise based sleep function for Node and browser.
 
 ## Installation
 
