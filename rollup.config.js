@@ -1,9 +1,10 @@
 import babel from "rollup-plugin-babel";
+import commonjs from "rollup-plugin-commonjs";
+import resolve from "rollup-plugin-node-resolve";
 import { terser } from "rollup-plugin-terser";
 import pkg from "./package.json";
 
 export default [
-  // CommonJS
   {
     input: "src/index.js",
     output: {
@@ -11,6 +12,8 @@ export default [
       format: "cjs"
     },
     plugins: [
+      resolve(),
+      commonjs(),
       babel({
         exclude: "node_modules/**",
         babelrc: false,
@@ -19,6 +22,7 @@ export default [
             "@babel/env",
             {
               modules: false,
+              useBuiltIns: "usage",
               targets: "node 8"
             }
           ]
@@ -26,30 +30,31 @@ export default [
       })
     ]
   },
-
-  // UMD
   {
     input: "src/index.js",
     output: {
-      name: pkg.name,
+      name: "foo",
       file: pkg.browser,
       format: "umd"
     },
     plugins: [
+      resolve(),
+      commonjs(),
       babel({
         exclude: "node_modules/**"
       })
     ]
   },
-
   {
     input: "src/index.js",
     output: {
-      name: pkg.name,
+      name: "foo",
       file: pkg.browser.replace(/\.js$/i, ".min.js"),
       format: "umd"
     },
     plugins: [
+      resolve(),
+      commonjs(),
       babel({
         exclude: "node_modules/**"
       }),

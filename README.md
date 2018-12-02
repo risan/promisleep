@@ -10,7 +10,7 @@
 
 Promise based sleep function for Node and browser.
 
-## Installation
+## Install
 
 ```bash
 $ npm install promisleep
