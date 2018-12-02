@@ -33,7 +33,7 @@ export default [
   {
     input: "src/index.js",
     output: {
-      name: "foo",
+      name: "promisleep",
       file: pkg.browser,
       format: "umd"
     },
@@ -48,7 +48,7 @@ export default [
   {
     input: "src/index.js",
     output: {
-      name: "foo",
+      name: "promisleep",
       file: pkg.browser.replace(/\.js$/i, ".min.js"),
       format: "umd"
     },

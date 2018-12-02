@@ -1,6 +1,6 @@
 {
   "name": "promisleep",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Promise based sleep function for Node and browser.",
   "keywords": [
     "sleep",
