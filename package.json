@@ -1,11 +1,10 @@
 {
   "name": "promisleep",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Promise based sleep function for Node and browser.",
   "keywords": [
-    "sleep",
     "promise",
-    "async"
+    "sleep"
   ],
   "homepage": "https://github.com/risan/promisleep#readme",
   "bugs": {
