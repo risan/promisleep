@@ -2,7 +2,6 @@
 
 [![Build Status](https://badgen.net/travis/risan/promisleep)](https://travis-ci.org/risan/promisleep)
 [![Test Covarage](https://badgen.net/codecov/c/github/risan/promisleep)](https://codecov.io/gh/risan/promisleep)
-[![Greenkeeper](https://badges.greenkeeper.io/risan/promisleep.svg)](https://greenkeeper.io)
 [![Latest Version](https://badgen.net/npm/v/promisleep)](https://www.npmjs.com/package/promisleep)
 
 Promise based sleep function for Node and browser.
